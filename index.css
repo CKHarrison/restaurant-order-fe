@@ -1,0 +1,185 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Smythe", cursive;
+}
+
+/* TYPOGRAPHY */
+header {
+  background-image: url("./images/ferks-guare-KEZdWfYD-ow-unsplash\ 1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  margin: 0;
+  padding: 2em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header--title {
+  font-size: 2.4375rem;
+  margin-bottom: 0;
+}
+
+.header--description {
+  font-size: 1.375rem;
+  margin-top: 0.5em;
+}
+
+.food--icon {
+  font-size: 4.375rem;
+}
+
+.food--name {
+  color: #000;
+  font-size: 1.75rem;
+  margin: 0;
+}
+.food--desc {
+  color: #8b8b8b;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.food--price {
+  color: #000;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.add-btn {
+  color: #3c3c3c;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+.order--heading-title {
+  text-align: center;
+}
+
+.order--title {
+  margin: 0;
+}
+
+.order--remove {
+  color: #bbb;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.order--remove:hover {
+  cursor: pointer;
+}
+
+.order--price,
+.total-price {
+  font-size: 1.25rem;
+}
+
+.order--price {
+  margin: 0;
+}
+
+.total-price {
+  margin: 0;
+}
+
+.complete-order {
+  background-color: #16db99;
+  border: none;
+  border-radius: 3px;
+  padding: 1em 1.25em;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.complete-order:hover {
+  cursor: pointer;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1em 1.5em;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  border-bottom: 1px solid #d2d2d2;
+}
+.menu--info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+#order--section {
+  display: none;
+}
+
+.order--information {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.order--container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.order--item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.total-price--title {
+  margin: 0.5em 0 0 0;
+}
+
+.order--total-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 2px solid #393333;
+  width: 100%;
+}
+
+/* UTILS */
+
+.align-right {
+  margin-left: auto;
+}
