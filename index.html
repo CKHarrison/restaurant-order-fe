@@ -36,7 +36,27 @@
         <div class="order--total-price" id="order-total-container">
           <!-- Total Price  -->
         </div>
-        <button class="complete-order" id="complete-order">Complete Order</button>
+        <button class="btn complete-order" id="complete-order">Complete Order</button>
+      </div>
+      <div class="modal" id="modal">
+        <form class="form" id="form">
+          <h2 class="form--title">Enter Card Details</h2>
+          <input type="text" placeholder="Enter your name" id="userName" name="userName" required />
+          <input
+            type="text"
+            placeholder="Enter card number"
+            id="userCardNumber"
+            name="userCardNumber"
+            required="required"
+            oninput="invalidCard(this)"
+            oninvalid="invalidCard(this)"
+          />
+          <input type="text" placeholder="Enter CVV" id="userCVV" name="userCVV" required />
+          <button id="pay-btn" type="submit" class="btn pay-btn">Pay</button>
+        </form>
+      </div>
+      <div class="container">
+        <div class="confirmation-msg" id="confirmation"></div>
       </div>
     </main>
     <script src="index.js" type="module"></script>

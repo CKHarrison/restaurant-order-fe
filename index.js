@@ -4,6 +4,9 @@ import { menuArray } from "./data";
 const menuContainer = document.getElementById("menu-container");
 let totalPrice = 0;
 let orders = [];
+const completeBtn = document.getElementById("complete-order");
+const payBtn = document.getElementById("pay-btn");
+const formEl = document.getElementById("form");
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.id) {
@@ -14,6 +17,49 @@ document.addEventListener("click", function (e) {
     removeItem(e.target.dataset.remove);
   }
 });
+
+// MODAL LOGIC
+
+completeBtn.addEventListener("click", function () {
+  showModal();
+});
+
+function showModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "flex";
+}
+
+function hideModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+// FORM LOGIC
+
+formEl.addEventListener("submit", function (e) {
+  e.preventDefault();
+  hideOrderCart();
+
+  const formData = new FormData(formEl);
+  const userName = formData.get("userName");
+
+  hideModal();
+  formEl.reset();
+  showConfirmation(userName);
+});
+
+function showConfirmation(userName) {
+  const confirmationEl = document.querySelector("#confirmation");
+  confirmationEl.style.display = "block";
+  confirmationEl.innerHTML = `Thanks, ${userName}! Your order is on its way!`;
+}
+
+function hideConfirmation() {
+  const confirmationEl = document.querySelector("#confirmation");
+  confirmationEl.style.display = "none";
+}
+
+// MENU LOGIC
 
 function getMenuHtml() {
   let menuText = "";
@@ -43,16 +89,17 @@ function addItem(itemId) {
   orders.push(orderItemHTML(item));
 
   updateTotalPrice(item.price);
+  hideConfirmation();
   renderOrders();
 }
 
 function removeItem(itemId) {
   const item = getMenuItem(itemId);
-  // console.log(`original orders: ${orders}`);
+
   const itemIndex = orders.indexOf(item);
   orders.splice(itemIndex, 1);
   updateTotalPrice(-item.price);
-  // console.log(`filtered orders: ${orders}`);
+
   renderOrders();
 }
 
@@ -60,7 +107,6 @@ function updateTotalPrice(price) {
   console.log(price);
   let addPrice = Number(price);
   totalPrice += addPrice;
-  // console.log(`adding ${price} for a total of ${totalPrice}`);
   const totalPriceHtml = `
   <h4 class="total-price--title">Total Price:</h4>
   <p class="total-price align-right">$${totalPrice}</p>
@@ -101,7 +147,16 @@ function renderOrders() {
 }
 
 function displayOrderCart() {
-  document.getElementById("order--section").style.display = "flex";
+  if (orders.length > 0) {
+    document.getElementById("order--section").style.display = "flex";
+  } else {
+    hideOrderCart();
+  }
   render();
 }
+
+function hideOrderCart() {
+  document.getElementById("order--section").style.display = "none";
+}
+
 render();
