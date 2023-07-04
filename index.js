@@ -1,5 +1,4 @@
-import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-import { menuArray } from "./data";
+import { menuArray } from "./data.js";
 
 const menuContainer = document.getElementById("menu-container");
 let totalPrice = 0;
